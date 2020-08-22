@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_paint"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.myapplication.PaintActivity">
+
+    <com.example.myapplication.PaintView
+        android:id="@+id/paintView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/brush_width"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonDivider" />
+
+    <View
+        android:id="@+id/buttonDivider"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.87" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="275dp" />
+
+    <ImageView
+        android:id="@+id/smallBrush"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/medBrush"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:srcCompat="@drawable/brush_small_on"
+        android:onClick="updateSmallBrushImage"
+        android:contentDescription="@string/small_brush_selected" />
+
+    <ImageView
+        android:id="@+id/medBrush"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/textView2"
+        app:layout_constraintStart_toStartOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:srcCompat="@drawable/brush_med_off"
+        android:onClick="updateMediumBrushImage"
+        android:contentDescription="@string/medium_brush_unselected" />
+
+    <ImageView
+        android:id="@+id/largeBrush"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/guideline"
+        app:layout_constraintStart_toEndOf="@+id/medBrush"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:srcCompat="@drawable/brush_large_off"
+        android:onClick="updateLargeBrushImage"
+        android:contentDescription="@string/large_brush_unselected" />
+
+    <ImageView
+        android:id="@+id/trashcanButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/delete_button_for_paintview"
+        android:onClick="clearCanvas"
+        app:layout_constraintStart_toEndOf="@id/undoButton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        app:srcCompat="@drawable/trashcan" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="110dp" />
+
+    <ImageView
+        android:id="@+id/undoButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/undo_button_for_paintview"
+        android:onClick="undoPrevious"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/trashcanButton"
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
+        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        app:srcCompat="@drawable/undo_button" />
+
+    <ImageView
+        android:id="@+id/doneButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/done_button"
+        android:onClick="finishDrawing"
+        app:layout_constraintTop_toBottomOf="@id/buttonDivider"
+        app:layout_constraintStart_toEndOf="@id/guideline"
+        app:layout_constraintEnd_toStartOf="@id/guideline2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:srcCompat="@drawable/done_button"/>
+
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/delete"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
+        app:layout_constraintTop_toBottomOf="@+id/buttonDivider" />
+
+    <HorizontalScrollView
+        android:id="@+id/colorScroll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:fadeScrollbars="false"
+        android:fillViewport="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/whiteBrush"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:contentDescription="@string/set_brush_white"
+                android:onClick="setBrushColorWhite"
+                app:srcCompat="@drawable/brush_white_off" />
+
+            <ImageView
+                android:id="@+id/blackBrush"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:contentDescription="@string/set_brush_black"
+                android:onClick="setBrushColorBlack"
+                app:srcCompat="@drawable/brush_black_on" />
+
+            <ImageView
+                android:id="@+id/redBrush"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:contentDescription="@string/set_brush_red"
+                android:onClick="setBrushColorRed"
+                app:srcCompat="@drawable/brush_red_off" />
+
+            <ImageView
+                android:id="@+id/orangeBrush"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:contentDescription="@string/set_brush_orange"
+                android:onClick="setBrushColorOrange"
+                app:srcCompat="@drawable/brush_orange_off" />
+
+            <ImageView
+                android:id="@+id/yellowBrush"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:contentDescription="@string/set_brush_yellow"
+                android:onClick="setBrushColorYellow"
+                app:srcCompat="@drawable/brush_yellow_off" />
+
+            <ImageView
+                android:id="@+id/greenBrush"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:contentDescription="@string/set_brush_green"
+                android:onClick="setBrushColorGreen"
+                app:srcCompat="@drawable/brush_green_off" />
+
+            <ImageView
+                android:id="@+id/blueBrush"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:contentDescription="@string/set_brush_blue"
+                android:onClick="setBrushColorBlue"
+                app:srcCompat="@drawable/brush_blue_off" />
+
+            <ImageView
+                android:id="@+id/purpleBrush"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:contentDescription="@string/set_brush_purple"
+                android:onClick="setBrushColorPurple"
+                app:srcCompat="@drawable/brush_purple_off" />
+
+            <ImageView
+                android:id="@+id/pinkBrush"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:contentDescription="@string/set_brush_pink"
+                android:onClick="setBrushColorPink"
+                app:srcCompat="@drawable/brush_pink_off" />
+
+            <ImageView
+                android:id="@+id/brownBrush"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:contentDescription="@string/set_brush_brown"
+                android:onClick="setBrushColorBrown"
+                app:srcCompat="@drawable/brush_brown_off" />
+
+            <ImageView
+                android:id="@+id/grayBrush"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:contentDescription="@string/set_brush_gray"
+                android:onClick="setBrushColorGray"
+                app:srcCompat="@drawable/brush_gray_off" />
+        </LinearLayout>
+    </HorizontalScrollView>
+
+<!--    <ImageView
+        android:id="@+id/eraser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/set_brush_eraser"
+        android:onClick="setBrushEraser"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/eraser_off" />-->
+
+</androidx.constraintlayout.widget.ConstraintLayout>
