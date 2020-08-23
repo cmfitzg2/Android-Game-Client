@@ -8,6 +8,8 @@ Game is playable, but there's a few caveats:
 * It's pretty unpolished. No fancy graphics or animations. Only one layout, so low & high DPI screens / resolutions will have pretty drastically different UIs, perhaps even broken at specific combinations
 * It's called MyApplication
 
+# App Screenshots
+
 ![App screenshot 1](https://github.com/cmfitzg2/Android-Game-Client/blob/master/app/src/main/res/drawable/promo-art/Android-1.png?raw=true)
 ![App screenshot 2](https://github.com/cmfitzg2/Android-Game-Client/blob/master/app/src/main/res/drawable/promo-art/Android-2.png?raw=true)
 ![App screenshot 3](https://github.com/cmfitzg2/Android-Game-Client/blob/master/app/src/main/res/drawable/promo-art/Android-3.png?raw=true)
@@ -16,6 +18,8 @@ Game is playable, but there's a few caveats:
 ![App screenshot 6](https://github.com/cmfitzg2/Android-Game-Client/blob/master/app/src/main/res/drawable/promo-art/Android-6.png?raw=true)
 ![App screenshot 7](https://github.com/cmfitzg2/Android-Game-Client/blob/master/app/src/main/res/drawable/promo-art/Android-7.png?raw=true)
 ![App screenshot 8](https://github.com/cmfitzg2/Android-Game-Client/blob/master/app/src/main/res/drawable/promo-art/Android-8.png?raw=true)
+
+# Server Screenshots
 
 ![Server screenshot 1](https://github.com/cmfitzg2/Android-Game-Client/blob/master/app/src/main/res/drawable/promo-art/Server-1.png?raw=true)
 ![Server screenshot 2](https://github.com/cmfitzg2/Android-Game-Client/blob/master/app/src/main/res/drawable/promo-art/Server-2.png?raw=true)
